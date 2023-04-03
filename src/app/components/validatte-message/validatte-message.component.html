@@ -3,3 +3,33 @@
     {{ msg }}
   </div>
 </div>
+<button (click)="add()">add</button>
+<button (click)="show()">show</button>
+
+<div>
+  <!-- <ng-container *ngIf="lang === 'vi'"> -->
+  <ng-container *ngFor="let item of langArr">
+    <ng-container *ngIf="item.lang === lang">
+      <ngx-wrapper-tiny-slider [config]="tinySliderConfig">
+        <ng-container *ngFor="let i of item?.image || []">
+          <div class="item" #data>
+            <img src="{{ i }}" width="60%" height="300px" />
+          </div>
+        </ng-container>
+
+        <!-- </ng-container> -->
+      </ngx-wrapper-tiny-slider>
+    </ng-container>
+    <!-- </ng-container> -->
+    <!-- <ng-container *ngIf="lang === 'en'">
+    <ngx-wrapper-tiny-slider [config]="tinySliderConfig">
+      <ng-container *ngFor="let i of image2">
+        <div class="item" #data>
+          <img src="{{ i }}" width="60%" height="300px" />
+        </div>
+      </ng-container>
+    </ngx-wrapper-tiny-slider>
+  </ng-container> -->
+    <!-- </div> -->
+  </ng-container>
+</div>
